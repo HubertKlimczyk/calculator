@@ -1,0 +1,60 @@
+.panel {
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+.panel__memoryContainer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.panel__classicOperationContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2px 2px;
+}
+
+.panel__memoryOperation {
+    border: none;
+    background: none;
+    color: white;
+    transition: 0.3s;
+}
+.panel__memoryOperation:hover {
+    transform: scale(1.02);
+}
+
+.panel__classicOperation {
+    padding: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    border: none;
+    background-color: #343131;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.panel__classicOperation:hover {
+    transform: scale(1.01);
+}
+
+.panel__number {
+    padding: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    border: none;
+    background-color: #404045;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.panel__number:hover {
+    transform: scale(1.01);
+}
+
+.panel__classicOperation--equal{
+    background-color: #5caae5;
+    cursor: pointer;
+}
