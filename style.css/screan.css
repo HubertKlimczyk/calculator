@@ -1,0 +1,8 @@
+.screan {
+    min-height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin: 5px;
+    color: white;
+}

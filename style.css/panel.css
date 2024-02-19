@@ -1,6 +1,7 @@
 .panel {
     display: grid;
     grid-template-rows: 1fr auto;
+    margin: 5px;
 }
 
 .panel__memoryContainer {
@@ -19,9 +20,10 @@
     background: none;
     color: white;
     transition: 0.3s;
+    cursor: pointer;
 }
 .panel__memoryOperation:hover {
-    transform: scale(1.02);
+    transform: scale(1.04);
 }
 
 .panel__classicOperation {
@@ -30,13 +32,15 @@
     font-weight: 700;
     color: white;
     border: none;
-    background-color: #343131;
+    background-color: hsl(0, 3%, 20%);
     border-radius: 5px;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .panel__classicOperation:hover {
-    transform: scale(1.01);
+    transform: scale(1.02);
+    background-color: hsl(0, 3%, 23%);
 }
 
 .panel__number {
@@ -45,16 +49,24 @@
     font-weight: 700;
     color: white;
     border: none;
-    background-color: #404045;
+    background-color: hsl(240, 4%, 26%);
     border-radius: 5px;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .panel__number:hover {
     transform: scale(1.01);
+    background-color: hsl(240, 5%, 30%);
 }
 
 .panel__classicOperation--equal{
-    background-color: #5caae5;
+    background-color: hsl(206, 72%, 63%);
+    color: black;
+    font-size: larger;
     cursor: pointer;
+}
+
+.panel__classicOperation--equal:hover {
+    background-color: hsl(206, 66%, 67%);
 }
