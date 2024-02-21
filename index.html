@@ -16,12 +16,15 @@
     <link rel="stylesheet" href="style.css/container.css">
     <link rel="stylesheet" href="style.css/panel.css">
     <link rel="stylesheet" href="style.css/screan.css">
+    <script defer src="script.js/script.js"></script>
 </head>
 
 <body class="container">
     <div class="container__calculator">
         <div class="screan">
-            <p>test chars: 194,3</p>
+            <p class="screan__char js-previousNumber"></p>
+            <p class="screan__char js-mathSign"></p>
+            <p class="screan__char screan__char--result js-currentNumber"></p>
         </div>
     
         <div class="panel">
@@ -34,30 +37,30 @@
                 <button class="panel__memoryOperation">M</button>
             </div>
             <div class="panel__classicOperationContainer">
-                <button class="panel__classicOperation">%</button>
-                <button class="panel__classicOperation">CE</button>
-                <button class="panel__classicOperation">C</button>
-                <button class="panel__classicOperation">X</button>
-                <button class="panel__classicOperation">1/x</button>
-                <button class="panel__classicOperation">x^2</button>
-                <button class="panel__classicOperation">2pX</button>
-                <button class="panel__classicOperation">/</button>
-                <button class="panel__number">7</button>
-                <button class="panel__number">8</button>
-                <button class="panel__number">9</button>
-                <button class="panel__classicOperation">x</button>
-                <button class="panel__number">4</button>
-                <button class="panel__number">5</button>
-                <button class="panel__number">6</button>
-                <button class="panel__classicOperation">-</button>
-                <button class="panel__number">1</button>
-                <button class="panel__number">2</button>
-                <button class="panel__number">3</button>
-                <button class="panel__classicOperation">+</button>
-                <button class="panel__number">+/-</button>
-                <button class="panel__number">0</button>
-                <button class="panel__number">,</button>
-                <button class="panel__classicOperation panel__classicOperation--equal">=</button>
+                <button class="panel__classicOperation js-operation">%</button>
+                <button class="panel__classicOperation js-operation">CE</button>
+                <button class="panel__classicOperation js-clear">C</button>
+                <button class="panel__classicOperation js-operation">X</button>
+                <button class="panel__classicOperation js-operation">1/x</button>
+                <button class="panel__classicOperation js-operation">x^2</button>
+                <button class="panel__classicOperation js-operation">2pX</button>
+                <button class="panel__classicOperation js-operation">/</button>
+                <button class="panel__number js-numberButtons js-numberButtons">7</button>
+                <button class="panel__number js-numberButtons">8</button>
+                <button class="panel__number js-numberButtons">9</button>
+                <button class="panel__classicOperation js-operation">x</button>
+                <button class="panel__number js-numberButtons">4</button>
+                <button class="panel__number js-numberButtons">5</button>
+                <button class="panel__number js-numberButtons">6</button>
+                <button class="panel__classicOperation js-operation">-</button>
+                <button class="panel__number js-numberButtons">1</button>
+                <button class="panel__number js-numberButtons">2</button>
+                <button class="panel__number js-numberButtons">3</button>
+                <button class="panel__classicOperation js-operation">+</button>
+                <button class="panel__number js-numberButtons">+/-</button>
+                <button class="panel__number js-numberButtons">0</button>
+                <button class="panel__number js-numberButtons">,</button>
+                <button class="panel__classicOperation panel__classicOperation--equal js-equals">=</button>
     
             </div>
         </div>
