@@ -22,7 +22,17 @@
     }
 
     function operate() {
-
+        if(currentNumber.innerHTML === "" && this.textContent === "-"){
+            currentNumber.innerHTML = "-";
+            return;
+        }
+        if(currentNumber.innerHTML === "" && this.textContent === "+/-"){
+            currentNumber.innerHTML = "-";
+            return;
+        }else if(currentNumber.innerHTML=== "-" && this.textContent ==="+/-"){
+            currentNumber.innerHTML = "";
+            return;
+        }
     }
 
     function showResult() {
@@ -30,6 +40,9 @@
     }
 
     function clearScrean() {
-
+        if(currentNumber.toString().length > 0) {
+            currentNumber.innerHTML = "";
+            return;
+        }
     }
 }
