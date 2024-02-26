@@ -6,6 +6,7 @@
     const operationButtons = document.querySelectorAll(".js-operation");
     const equalsButton = document.querySelector(".js-equals");
     const clearButton = document.querySelector(".js-clear");
+    const backspaceButton = document.querySelector(".js-backspace");
 
     let result = "";
 
@@ -13,6 +14,7 @@
     equalsButton.addEventListener("click", showResult)
     clearButton.addEventListener("click", clearScrean)
     numberButtons.forEach((button) => button.addEventListener("click", displayNumbers))
+    backspaceButton.addEventListener("click", backspace)
 
     function displayNumbers() {
         if (this.textContent === "," && currentNumber.innerHTML.includes(",")) return;
@@ -22,14 +24,14 @@
     }
 
     function operate() {
-        if(currentNumber.innerHTML === "" && this.textContent === "-"){
+        if (currentNumber.innerHTML === "" && this.textContent === "-") {
             currentNumber.innerHTML = "-";
             return;
         }
-        if(currentNumber.innerHTML === "" && this.textContent === "+/-"){
+        if (currentNumber.innerHTML === "" && this.textContent === "+/-") {
             currentNumber.innerHTML = "-";
             return;
-        }else if(currentNumber.innerHTML=== "-" && this.textContent ==="+/-"){
+        } else if (currentNumber.innerHTML === "-" && this.textContent === "+/-") {
             currentNumber.innerHTML = "";
             return;
         }
@@ -40,9 +42,17 @@
     }
 
     function clearScrean() {
-        if(currentNumber.toString().length > 0) {
+        if (currentNumber.toString().length > 0) {
             currentNumber.innerHTML = "";
             return;
+        }
+    }
+
+    function backspace() {
+        let currentNumberText = currentNumber.innerHTML;
+        if (currentNumberText.length > 0) {
+            currentNumberText = currentNumberText.slice(0, -1);
+            currentNumber.innerHTML = currentNumberText;
         }
     }
 }
