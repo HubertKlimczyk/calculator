@@ -7,6 +7,7 @@
     const equalsButton = document.querySelector(".js-equals");
     const clearButton = document.querySelector(".js-clear");
     const backspaceButton = document.querySelector(".js-backspace");
+    const clearCurrentNumberButton = document.querySelector(".js-clearCurrentNumber");
 
     let result = "";
 
@@ -15,10 +16,11 @@
     clearButton.addEventListener("click", clearScrean)
     numberButtons.forEach((button) => button.addEventListener("click", displayNumbers))
     backspaceButton.addEventListener("click", backspace)
+    clearCurrentNumberButton.addEventListener("click", clearCurrentNumber)
 
     function displayNumbers() {
-        if (this.textContent === "," && currentNumber.innerHTML.includes(",")) return;
-        if (this.textContent === "," && currentNumber.innerHTML === "") return currentNumber.innerHTML = "0,";
+        if (this.textContent === "." && currentNumber.innerHTML.includes(".")) return;
+        if (this.textContent === "." && currentNumber.innerHTML === "") return currentNumber.innerHTML = "0.";
 
         currentNumber.innerHTML += this.textContent;
     }
@@ -35,24 +37,68 @@
             currentNumber.innerHTML = "";
             return;
         }
+        if (mathSign.innerHTML !== "") {
+            showResult();
+        }
+        previousNumber.innerHTML = currentNumber.innerHTML;
+        mathSign.innerHTML = this.textContent;
+        currentNumber.innerHTML = "";
     }
 
     function showResult() {
+        if (mathSign.innerHTML === "") return;
+        let a = Number(currentNumber.innerHTML);
+        let b = Number(previousNumber.innerHTML);
+        let operator = mathSign.innerHTML;
 
+        switch (operator) {
+            case "+":
+                result = a + b;
+                break;
+            case "-":
+                result = b - a;
+                break;
+            case "x":
+                result = a * b;
+                break;
+            case "/":
+                result = b / a;
+                break;
+            case "x^2":
+                result = b ** 2;
+                break;
+            case "2pX":
+                result = Math.sqrt(b);
+                break;
+            case "1/x":
+                result = 1 / b;
+                break;
+            case "x^":
+                result = b ** a;
+                break;
+        }
+
+        currentNumber.innerHTML = result;
+        previousNumber.innerHTML = "";
+        mathSign.innerHTML = "";
     }
 
     function clearScrean() {
-        if (currentNumber.toString().length > 0) {
-            currentNumber.innerHTML = "";
-            return;
-        }
+        currentNumber.innerHTML = "";
+        mathSign.innerHTML = "";
+        previousNumber.innerHTML = "";
+        return;
     }
 
     function backspace() {
         let currentNumberText = currentNumber.innerHTML;
-        if (currentNumberText.length > 0) {
-            currentNumberText = currentNumberText.slice(0, -1);
-            currentNumber.innerHTML = currentNumberText;
-        }
+        currentNumberText = currentNumberText.slice(0, -1);
+        currentNumber.innerHTML = currentNumberText;
+        return;
+    }
+
+    function clearCurrentNumber() {
+        currentNumber.innerHTML = "";
+        return;
     }
 }
